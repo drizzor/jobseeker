@@ -42,8 +42,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Un utilisateur est associé à un rôle
+     */
     public function role()
     {
         return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * Un utilisateur peut avoir plusieurs missions
+     */
+    public function jobs()
+    {
+        return $this->hasMany(Job::class);
     }
 }

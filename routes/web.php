@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/home', function() {
     return view('home');
 })->middleware('auth')->name('home');
+
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
