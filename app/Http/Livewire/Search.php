@@ -9,7 +9,7 @@ class Search extends Component
 {
     public $query = '';
     public $jobs = [];
-    public Int $selectedIndex = 0;
+    public $selectedIndex = 0;
 
     public function render()
     {

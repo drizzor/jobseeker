@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <style>
+          [x-cloak] { display: none; }
+        </style>
         @livewireStyles
         <title>Jobseeker</title>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
@@ -13,6 +16,7 @@
 
       <div class="container mx-auto px-4">
         @include('partials.navbar')
+        <livewire:flash />
         @yield('content')
       </div>
 
