@@ -25,4 +25,22 @@ class Job extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Un job peut etre liké par plusieurs utilisateurs
+     */
+    public function likes()
+    {
+        return $this->belongsToMany(User::class);
+    }
+
+    /**
+     * L'utilisateur aime-t-il la mission?
+     */
+    public function isLiked()
+    {
+        if(auth()->check()) {
+            return auth()->user()->likes->contains('id', $this->id);
+        }
+    }
 }
