@@ -10,6 +10,8 @@
         @livewireStyles
         <title>Jobseeker</title>
         <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        {{-- fontawesome --}}
+        <script src="https://kit.fontawesome.com/9e89e3dc89.js" crossorigin="anonymous"></script>
     </head>
 
     <body>

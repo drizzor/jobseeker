@@ -14,7 +14,7 @@ class Job extends Component
     }
 
     /**
-     * Ajout d'un like sur la mission cible
+     * Ajout d'un like sur la mission cible (cliquée)
      */
     public function addLike()
     {   

@@ -66,4 +66,12 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Job::class);
     }
+
+    /**
+     * Un utilisateur peut envoyer plusieurs propositions
+     */
+    public function proposals()
+    {
+        return $this->hasMany(Proposal::class);
+    }
 }
