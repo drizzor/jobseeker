@@ -20,7 +20,7 @@
         <div class="flex items-center">
             <span class="h-2 w-2 bg-green-300 rounded-full mr-2 mt-1"></span>
 
-            <a href="#">
+            <a href="{{ route('jobs.show', $job) }}">
                 Consulter la mission
             </a>
         </div>

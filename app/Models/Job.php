@@ -10,7 +10,7 @@ class Job extends Model
     use HasFactory;
 
     /**
-     * Methode Scope permettant de definir une règle spécifique lorsque je récupère ici mes jobs (voir Local Scopes)
+     * Methode Scope permettant de definir une règle spécifique lorsque je récupère mes jobs (voir Local Scopes)
      *
      */
     public function scopeOnline($query)
@@ -19,7 +19,7 @@ class Job extends Model
     }
 
     /**
-     * Un job appartient à un utilisateur
+     * Un job appartient à un utilisateur - auteur de la mission
      */
     public function user()
     {
@@ -27,7 +27,7 @@ class Job extends Model
     }
 
     /**
-     * Un job peut etre liké par plusieurs utilisateurs
+     * Un job peut etre 'liké' par plusieurs utilisateurs
      */
     public function likes()
     {
@@ -42,5 +42,13 @@ class Job extends Model
         if(auth()->check()) {
             return auth()->user()->likes->contains('id', $this->id);
         }
+    }
+
+    /**
+     * Un job peut avoir plusieurs propositions/demandes
+     */
+    public function proposals()
+    {
+        return $this->hasMany(Proposal::class);
     }
 }
