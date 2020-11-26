@@ -74,4 +74,21 @@ class User extends Authenticatable
     {
         return $this->hasMany(Proposal::class);
     }
+
+    /**
+     * Un utilisateur peut potentiellement avoir plusieurs discussions différentes
+     * Etant donné qu'il s'agit d'une table particulière je n'ai pas pu utiliser une méthode de relation de Laravel
+     */
+    public function conversations()
+    {
+        return Conversation::where(function ($q) {
+            return $q->where('to', $this->id)
+                ->orWhere('from', $this->id);
+        });
+    }    
+
+    public function getConversationsAtrribute()
+    {
+        return $this->conversations()->get();
+    }
 }

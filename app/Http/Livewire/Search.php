@@ -51,6 +51,7 @@ class Search extends Component
             $this->selectedIndex = 0;
             return;
         }
+        
        $this->selectedIndex++; 
     }   
 

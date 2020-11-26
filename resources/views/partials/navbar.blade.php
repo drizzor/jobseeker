@@ -14,6 +14,7 @@
             <a href="{{ route('login') }}" class="mr-5 {{ request()->routeIs('login') ? 'text-green-500 font-semibold' : '' }} hover:text-green-500">Se connecter</a>
             <a href="{{ route('register') }}" class="mr-5 {{ request()->routeIs('register') ? 'text-green-500 font-semibold' : '' }} hover:text-green-500">S'enregistrer</a>
         @else
+            <a href="{{ route('conversation.index') }}" class="mr-5 {{ request()->routeIs('conversations.*') ? 'text-green-500 font-semibold' : '' }} hover:text-green-500">Mes conversations</a>
             <a href="{{ route('home') }}" class="mr-5 {{ request()->routeIs('home') ? 'text-green-500 font-semibold' : '' }} hover:text-green-500">Tableau de bord</a>
             <a href="{{ route('logout') }}" class="hover:text-green-500" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Se déconnecter</a>
             <form id="logout-form" method="POST" action="{{ route('logout') }}" style="display:none;">
