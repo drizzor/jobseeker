@@ -12,22 +12,6 @@ class Conversation extends Model
     protected $fillable = ['from', 'to', 'job_id'];
 
     /**
-     * Le message provient de tel utilisateur
-    */
-    public function from()
-    {
-        return $this->belongsTo(User::class, 'from');
-    }
-    
-    /**
-     * Le message a été envoyé à tel utilisateur
-     */
-    public function to()
-    {
-        return $this->belongsTo(User::class, 'to');
-    }
-
-    /**
      * Une conversation peut avoir plusieurs messages
      */
     public function messages()

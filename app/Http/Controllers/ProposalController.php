@@ -13,6 +13,10 @@ class ProposalController extends Controller
 {
     public function store(Request $request, Job $job)
     {
+        // Interdire de postuler à sa propre mission (non sens)
+        if($job->user->id === auth()->user()->id)
+            return abort(403, "Vous n'avez pas le droit de postuler à votre propre mission");
+
         $proposal = Proposal::create([
             'job_id' => $job->id,
             'validated' => false,
@@ -34,6 +38,10 @@ class ProposalController extends Controller
         $proposal = Proposal::findOrFail($request->proposal);
 
         $proposal->fill(['validated' => 1]);
+
+        // Seul le propriétaire de la mission peut valider une candidature
+        if($proposal->job->user->id !== auth()->user()->id) 
+            return abort(403, "Action non autorisée");
 
         // isDirty méthode permettant de vérifier s'il y a une modification d'un attribut du model avant sauvegarde
         if($proposal->isDirty()) {

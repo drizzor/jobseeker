@@ -4,9 +4,12 @@ namespace App\Http\Livewire;
 
 use App\Models\Message;
 use Livewire\Component;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Conversation extends Component
 {
+    use AuthorizesRequests;
+    
     public $conversation;
 
     public $message = '';
@@ -15,6 +18,8 @@ class Conversation extends Component
     public function mount($conversation)
     {
         $this->conversation = $conversation;
+        
+        $this->authorize('view', $conversation);
     }
 
     /**
