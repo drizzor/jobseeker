@@ -36,7 +36,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
         
-                        <span class="absolute top-0 right-0 mr-2 inline-flex items-center justify-center w-4 h-4  text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 rounded-full {{ (auth()->user()->unreadNotifications()->count() > 0) ? 'bg-red-600' : 'bg-gray-600'}} ">
+                        <span id="js-count" class="absolute top-0 right-0 mr-2 inline-flex items-center justify-center w-4 h-4  text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 rounded-full {{ (auth()->user()->unreadNotifications()->count() > 0) ? 'bg-red-600' : 'bg-gray-600'}} ">
                             {{ auth()->user()->unreadNotifications()->count() }} 
                         </span>
                     </span> 

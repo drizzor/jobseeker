@@ -34,7 +34,7 @@ class JobLiked extends Notification
      */
     public function via($notifiable)
     {
-        return ['database'];
+        return ['database', 'broadcast'];
     }
 
     /**
@@ -63,4 +63,14 @@ class JobLiked extends Notification
             'job_id' => $this->job->id,
         ];
     }    
+
+    /**
+     * Envoi des data au broadcast afin d'activer une notification en temps réel
+     */
+    public function toBroadcast($notifiable)
+    {
+        return new BroadcastMessage([
+            'job_id' => $this->job->id,
+        ]);
+    }
 }
